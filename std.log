@@ -1,0 +1,5 @@
+2023-01-26 09:13:20,080  * Debugger is active!
+2023-01-26 09:13:20,090  * Debugger PIN: 142-410-526
+2023-01-26 09:13:26,983 127.0.0.1 - - [26/Jan/2023 09:13:26] "POST /images/upload HTTP/1.1" 200 -
+2023-01-26 09:13:27,045 127.0.0.1 - - [26/Jan/2023 09:13:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2023-01-26 09:15:45,773  * Detected change in '/Users/dname/Code/stable-diffusion/py/dreambooth-api/flaskr/images.py', reloading

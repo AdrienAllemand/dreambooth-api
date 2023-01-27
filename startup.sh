@@ -1,0 +1,1 @@
+pipenv run flask --app flaskr --debug run

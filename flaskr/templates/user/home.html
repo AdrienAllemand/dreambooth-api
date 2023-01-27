@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Home page{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+{% if g.user %}
+<span>Welcome {{ g.user['username'] }}</span>
+{% endif %}
+
+{% if trainingSessions %}
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Created</th>
+            <th>Is resolved</th>
+        </tr>
+    </thead>
+    {% for trainingSession in trainingSessions %}
+    <tr>
+        <td>{{ trainingSession['id'] }}</td>
+        <td>{{ trainingSession['created'] }}</td>
+        <td>{{ trainingSession['is_resolved'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+{% if isProcessing %}
+<span>We are currently processing your request, you should receive an email with the generated images after an
+    hour.</span>
+{% else %}
+<span>You have no training sessions </span>
+
+{% if images %}
+<span>You have {{ images|length }} images</span>
+
+<div class="image-grid">
+    {% for image in images %}
+    <div class="image-item">
+        <img src="{{ url_for('images.display_image', filename=image) }}" height="256px" width="256px" />
+        <form action="{{ url_for('images.delete_image', filename=image) }}" method="POST" class="delete-form">
+            <button type="submit" class="delete-button">Delete</button>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+
+{% endif %}
+
+<a href=" {{ url_for('images.upload') }}">Upload images</a>
+{% endif %}
+
+{% endblock %}
+
+You can use CSS to create a grid layout for your images and add margins to space them out. Here is an example of how you
+can do this:
