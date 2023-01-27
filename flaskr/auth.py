@@ -79,7 +79,7 @@ def load_logged_in_user():
 @bp.route('/logout')
 def logout():
     session.clear()
-    return redirect(url_for('index'))
+    return redirect(url_for('auth.login'))
 
 # This decorator returns a new view function that wraps the original view it’s applied to. 
 # The new function checks if a user is loaded and redirects to the login page otherwise. 
@@ -93,4 +93,3 @@ def login_required(view):
         return view(**kwargs)
 
     return wrapped_view
-
