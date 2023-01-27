@@ -15,6 +15,9 @@ jobs:
 
     - name: Build the image
       run: sh build_image.sh
+      
+    - name: Tag the image
+      run: docker image tag dreambooth-api:latest ghcr.io/adrienallemand/dreambooth-api:latest
 
     - name: Log in to GitHub Container Registry
       run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u AdrienAllemand --password-stdin
