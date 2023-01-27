@@ -20,4 +20,4 @@ jobs:
       run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u AdrienAllemand --password-stdin
 
     - name: Push the image
-      run: docker push ghcr.io/adrienallemand/dreambooth-api:latest
+      run: docker image push ghcr.io/adrienAllemand/dreambooth-api:latest
